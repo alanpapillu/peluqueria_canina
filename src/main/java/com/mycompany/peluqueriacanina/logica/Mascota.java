@@ -1,7 +1,18 @@
 package com.mycompany.peluqueriacanina.logica;
 
-public class Mascota {
+import java.io.Serializable;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.OneToOne;
+
+
+@Entity
+public class Mascota implements Serializable {
     
+    @Id
+    @GeneratedValue(strategy = GenerationType.SEQUENCE)
     private int num_cliente;
     private String nombre;
     private String raza;
@@ -9,7 +20,7 @@ public class Mascota {
     private String alergico;
     private String atencion_especial;
     private String observaciones;
-    
+    @OneToOne
     private Duenio unDuenio;
 
     public Mascota() {
