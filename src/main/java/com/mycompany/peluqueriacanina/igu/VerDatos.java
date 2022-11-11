@@ -59,6 +59,11 @@ public class VerDatos extends javax.swing.JFrame {
         jLabel1.setText("Datos de mascotas:");
 
         btnEditar.setText("Editar");
+        btnEditar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnEditarActionPerformed(evt);
+            }
+        });
 
         btnEliminar.setText("Eliminar");
         btnEliminar.addActionListener(new java.awt.event.ActionListener() {
@@ -155,6 +160,8 @@ public class VerDatos extends javax.swing.JFrame {
                 control.borrarMascota(num_cliente);
                 
                 mostrarMensaje("Mascota eliminada correctamente","Info","Borrado de Mascota");
+                cargarTabla();
+                
                 } else {
                 mostrarMensaje("No seleccionó ninguna mascota","Error","Error al eliminar");                
             }
@@ -170,13 +177,34 @@ public class VerDatos extends javax.swing.JFrame {
             optionPane.setMessageType(JOptionPane.INFORMATION_MESSAGE);
         } 
         else if (tipo.equals("Error")){
-            optionPane.setMessageType(JOptionPane.ERROR);
+            optionPane.setMessageType(JOptionPane.ERROR_MESSAGE);
         } 
         JDialog dialog = optionPane.createDialog(titulo);
         dialog.setAlwaysOnTop(true);
         dialog.setVisible(true);         
         
     }//GEN-LAST:event_btnEliminarActionPerformed
+
+    private void btnEditarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEditarActionPerformed
+        
+        if(tablaMascotas.getRowCount() > 0) {
+            if(tablaMascotas.getSelectedRow()!=-1){
+                
+                int num_cliente = Integer.parseInt (String.valueOf(tablaMascotas.getValueAt(tablaMascotas.getSelectedRow(), 0)));
+                
+                ModificarDatos pantallaModif = new ModificarDatos(num_cliente);
+                pantallaModif.setVisible(true);
+                pantallaModif.setLocationRelativeTo(null);
+                
+            } else {
+                mostrarMensaje("No seleccionó ninguna mascota","Error","Error al eliminar");                
+            }
+        }
+        else {
+                mostrarMensaje("No hay nada para eliminar","Error","Error al eliminar");  
+        }
+        
+    }//GEN-LAST:event_btnEditarActionPerformed
 
  
 
