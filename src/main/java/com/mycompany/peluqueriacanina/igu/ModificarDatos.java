@@ -11,6 +11,7 @@ public class ModificarDatos extends javax.swing.JFrame {
 
     Controladora control = null;
     int num_cliente;
+    Mascota masco;
     
     public ModificarDatos(int num_cliente) {
         control = new Controladora();
@@ -312,22 +313,30 @@ public class ModificarDatos extends javax.swing.JFrame {
 
     private void btnGuardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGuardarActionPerformed
         
-        /*String nombreMasco = txtNombre.getText();
+        //Datos de la mascota
+        String nombreMasco = txtNombre.getText();
         String raza = txtRaza.getText();
         String color = txtColor.getText();
         String observaciones = txtObservaciones.getText();
-        String celDuenio = txtCelDuenio.getText();
-        String nombreDuenio = txtNombreDuenio.getText();
         String alergico = (String) cmbAlergico.getSelectedItem();
         String atencionEsp = (String) cmbAtencionEsp.getSelectedItem();
         
-        control.guardar(nombreMasco, raza, color, observaciones, celDuenio, nombreDuenio, alergico, atencionEsp);
+        //Datos del dueño
+        String celDuenio = txtCelDuenio.getText();
+        String nombreDuenio = txtNombreDuenio.getText();
         
-        JOptionPane optionPane = new JOptionPane("Se guardó correctamente");
-        optionPane.setMessageType(JOptionPane.INFORMATION_MESSAGE);
-        JDialog dialog = optionPane.createDialog("Guardado exitoso");
-        dialog.setAlwaysOnTop(true);
-        dialog.setVisible(true);*/
+        control.modificarMascota(masco, nombreMasco, raza, color, observaciones, celDuenio, nombreDuenio, alergico, atencionEsp);
+        
+        //mensaje de ok
+        mostrarMensaje("Edición realizada correctamente", "Info", "Edición correcta");
+        
+        VerDatos pantalla = new VerDatos();
+        pantalla.setVisible(true);
+        pantalla.setLocationRelativeTo(null);
+        
+        
+        this.dispose();
+        
     }//GEN-LAST:event_btnGuardarActionPerformed
 
    
@@ -359,7 +368,7 @@ public class ModificarDatos extends javax.swing.JFrame {
     // End of variables declaration//GEN-END:variables
 
     private void cargarDatos(int num_cliente) {
-        Mascota masco = control.traerMascota(num_cliente);
+        this.masco = control.traerMascota(num_cliente);
         
         txtNombre.setText(masco.getNombre());
         txtRaza.setText(masco.getRaza());
@@ -372,12 +381,24 @@ public class ModificarDatos extends javax.swing.JFrame {
             cmbAlergico.setSelectedIndex(1);
         } else {
             cmbAlergico.setSelectedIndex(2);
-        };
+        }
         
         if(masco.getAtencion_especial().equals("SI")){
             cmbAtencionEsp.setSelectedIndex(1);
         } else {
             cmbAtencionEsp.setSelectedIndex(2);
-        };
+        }
     }
+        public void mostrarMensaje(String mensaje, String tipo, String titulo){
+        JOptionPane optionPane = new JOptionPane(mensaje);
+        if(tipo.equals("info")){
+            optionPane.setMessageType(JOptionPane.INFORMATION_MESSAGE);
+        } 
+        else if (tipo.equals("Error")){
+            optionPane.setMessageType(JOptionPane.ERROR_MESSAGE);
+        } 
+        JDialog dialog = optionPane.createDialog(titulo);
+        dialog.setAlwaysOnTop(true);
+        dialog.setVisible(true);                
+    }          
 }

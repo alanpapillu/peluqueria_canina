@@ -29,6 +29,7 @@ public class VerDatos extends javax.swing.JFrame {
         jLabel1 = new javax.swing.JLabel();
         btnEditar = new javax.swing.JButton();
         btnEliminar = new javax.swing.JButton();
+        btnMenu = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         addWindowListener(new java.awt.event.WindowAdapter() {
@@ -72,6 +73,13 @@ public class VerDatos extends javax.swing.JFrame {
             }
         });
 
+        btnMenu.setText("Menú");
+        btnMenu.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnMenuActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
@@ -85,7 +93,8 @@ public class VerDatos extends javax.swing.JFrame {
                         .addGap(18, 18, 18)
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(btnEliminar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(btnEditar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+                            .addComponent(btnEditar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(btnMenu, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
                 .addContainerGap(17, Short.MAX_VALUE))
         );
         jPanel2Layout.setVerticalGroup(
@@ -103,7 +112,9 @@ public class VerDatos extends javax.swing.JFrame {
                         .addComponent(btnEliminar, javax.swing.GroupLayout.PREFERRED_SIZE, 59, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
                         .addComponent(btnEditar, javax.swing.GroupLayout.PREFERRED_SIZE, 59, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addContainerGap(200, Short.MAX_VALUE))))
+                        .addGap(18, 18, 18)
+                        .addComponent(btnMenu, javax.swing.GroupLayout.PREFERRED_SIZE, 59, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addContainerGap(123, Short.MAX_VALUE))))
         );
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
@@ -181,8 +192,7 @@ public class VerDatos extends javax.swing.JFrame {
         } 
         JDialog dialog = optionPane.createDialog(titulo);
         dialog.setAlwaysOnTop(true);
-        dialog.setVisible(true);         
-        
+        dialog.setVisible(true);                
     }//GEN-LAST:event_btnEliminarActionPerformed
 
     private void btnEditarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEditarActionPerformed
@@ -196,6 +206,8 @@ public class VerDatos extends javax.swing.JFrame {
                 pantallaModif.setVisible(true);
                 pantallaModif.setLocationRelativeTo(null);
                 
+                this.dispose();
+                
             } else {
                 mostrarMensaje("No seleccionó ninguna mascota","Error","Error al eliminar");                
             }
@@ -204,13 +216,24 @@ public class VerDatos extends javax.swing.JFrame {
                 mostrarMensaje("No hay nada para eliminar","Error","Error al eliminar");  
         }
         
+    
+        
     }//GEN-LAST:event_btnEditarActionPerformed
+
+    private void btnMenuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnMenuActionPerformed
+                Principal principal = new Principal();
+                principal.setVisible(true);
+                principal.setLocationRelativeTo(null);
+                
+                this.dispose();
+    }//GEN-LAST:event_btnMenuActionPerformed
 
  
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnEditar;
     private javax.swing.JButton btnEliminar;
+    private javax.swing.JButton btnMenu;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JPanel jPanel1;
