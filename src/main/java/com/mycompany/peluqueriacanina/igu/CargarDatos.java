@@ -11,7 +11,7 @@ public class CargarDatos extends javax.swing.JFrame {
     Controladora control = new Controladora();
     
     public CargarDatos() {
-        //control = new Controladora();
+        
         initComponents();
     }
 
@@ -184,7 +184,7 @@ public class CargarDatos extends javax.swing.JFrame {
         );
 
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel1.setIcon(new javax.swing.ImageIcon("C:\\Users\\user\\Documents\\Descargas\\peluqueria canina.jpg")); // NOI18N
+        jLabel1.setIcon(new javax.swing.ImageIcon("C:\\Users\\user\\Desktop\\Imagen2.png")); // NOI18N
         jLabel1.setAlignmentY(0.0F);
         jLabel1.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         jLabel1.setMaximumSize(new java.awt.Dimension(100, 375));
@@ -242,7 +242,7 @@ public class CargarDatos extends javax.swing.JFrame {
                         .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 410, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(btnLimpiar, javax.swing.GroupLayout.DEFAULT_SIZE, 35, Short.MAX_VALUE)
+                    .addComponent(btnLimpiar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(btnGuardar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap())
         );
